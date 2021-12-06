@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.submit-form {
+  max-width: 300px;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+} 
+
+.navbar {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(33, 37, 41);
+  padding-left: .75rem;
+  padding-right: .75rem;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-brand {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #fff;
+  white-space: nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  margin-right: auto;
+  
+}
+
+.nav-link {
+  padding-right: .5rem;
+  padding-left: .5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  margin-top: 1rem
 }
