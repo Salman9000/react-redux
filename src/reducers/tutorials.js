@@ -6,49 +6,26 @@ import {
   DELETE_ALL_TUTORIALS,
 } from "../actions/types";
 
-const initialState = [
-  { id: 1, title: "React Hooks Basic", description: "Tut# 1" },
-  { id: 2, title: "Redux Basic", description: "Tut# 2" },
-  { id: 3, title: "Redux Hooks Basic", description: "Tut# 3" },
-  { id: 4, title: "React CRUD", description: "Tut# 4" },
-];
-
-let dataId = 4;
+const initialState = [];
 
 function tutorialReducer(tutorials = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case CREATE_TUTORIAL:
-      dataId += 1;
-      let newData = {
-        id: dataId,
-        title: payload.title,
-        description: payload.description,
-      };
-      let ct = [...tutorials, newData];
+      let ct = [...tutorials, payload];
       return ct;
 
     case RETRIEVE_TUTORIALS:
-      return tutorials;
+      return payload;
 
     case UPDATE_TUTORIAL:
-      const abc = tutorials.map((tutorial) => {
-        if (tutorial.id === payload.id) {
-          return {
-            ...tutorial,
-            ...payload.data,
-          };
-        } else {
-          return tutorial;
-        }
-      });
-      return abc;
+      return payload
 
     case DELETE_TUTORIAL:
-      return tutorials.filter((tutorial) => tutorial.id !== payload.id);
+      return payload
 
     case DELETE_ALL_TUTORIALS:
-      return [];
+      return payload;
 
     default:
       return tutorials;

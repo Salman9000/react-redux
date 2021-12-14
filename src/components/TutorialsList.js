@@ -8,6 +8,7 @@ const TutorialsList = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
 
   const tutorials = useSelector((state) => state.tutorials);
+  console.log(tutorials)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const TutorialsList = () => {
         </ul>
 
         <button
-          className="btn btn-danger"
+          className="btn-danger mt-1"
           onClick={removeAllTutorials}
         >
           Remove All

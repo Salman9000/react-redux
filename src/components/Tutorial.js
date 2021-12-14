@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateTutorial, deleteTutorial } from "../actions/tutorials";
+import TutorialService from "../services/TutorialService";
 
 const Tutorial = (props) => {
   const initialTutorialState = {
@@ -12,20 +13,15 @@ const Tutorial = (props) => {
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
 
-  const tutorials = useSelector((state) => state.tutorials);
   const dispatch = useDispatch();
 
-  const getTutorial = (id) => {
-    // dispatch(getTutorialById(id));
-    // console.log(tutorials)
-    // TutorialDataService.get(id)
-    // .then(response => {
-    // eslint-disable-next-line eqeqeq
-    setCurrentTutorial(tutorials.filter((item) => id == item.id)[0]);
-    // })
-    // .catch(e => {
-    // console.log(e);
-    // });
+  const getTutorial = async (id) => {
+    try {
+      const res = await TutorialService.get(id);
+      setCurrentTutorial(res.data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -98,34 +94,39 @@ const Tutorial = (props) => {
             </div>
           </form>
 
-          {currentTutorial.published ? (
-            <button
-              className="btn badge bg-primary mr-2"
-              onClick={() => updateStatus(false)}
-            >
-              UnPublish
-            </button>
-          ) : (
-            <button
-              className="btn badge bg-primary mr-2"
-              onClick={() => updateStatus(true)}
-            >
-              Publish
-            </button>
-          )}
+          <div className="mt-1">
+            {currentTutorial.published ? (
+              <button
+                className="btn badge bg-primary mr-2"
+                onClick={() => updateStatus(false)}
+              >
+                UnPublish
+              </button>
+            ) : (
+              <button
+                className="btn badge bg-primary mr-2"
+                onClick={() => updateStatus(true)}
+              >
+                Publish
+              </button>
+            )}
 
-          <button className="btn badge bg-danger mr-2" onClick={removeTutorial}>
-            Delete
-          </button>
+            <button
+              className="btn badge bg-danger mr-2"
+              onClick={removeTutorial}
+            >
+              Delete
+            </button>
 
-          <button
-            type="submit"
-            className="btn badge bg-success"
-            onClick={updateContent}
-          >
-            Update
-          </button>
-          <p>{message}</p>
+            <button
+              type="submit"
+              className="btn badge bg-success"
+              onClick={updateContent}
+            >
+              Update
+            </button>
+            <p>{message}</p>
+          </div>
         </div>
       ) : (
         <div>

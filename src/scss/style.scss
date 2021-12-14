@@ -1,0 +1,95 @@
+$background-color: #151a30;
+$font-white: white;
+$card-background: white;
+$card-text: black;
+$border-color: rgb(146, 0, 102);
+$danger:  #dc3545;
+$success: #198754;
+$warning: #ffc107;
+$primary: #0d6efd;
+
+@import 'navbar';
+@import 'button';
+@import 'list';
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+.mt-1 {
+    margin-top: 1rem
+}
+  
+  .submit-form {
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .edit-form {
+    max-width: 300px;
+    margin: auto;
+  } 
+  
+  .container {
+    width: 100%;
+    margin-top: 1rem
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  
+  .col {
+    padding: 0 2rem;
+  }
+  
+
+  .badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+  
+  .bg-warning {
+    background-color: $warning;
+  }
+  
+  .bg-primary {
+    background-color: $primary;
+  }
+  
+  .bg-danger {
+    background-color: $danger;
+  }
+  
+  .bg-success {
+    background-color: $success;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }

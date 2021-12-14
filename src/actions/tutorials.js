@@ -6,37 +6,50 @@ import {
   DELETE_ALL_TUTORIALS,
 } from "./types";
 
-export const createTutorial = (tutorial) => (dispatch) => {
+import TutorialService from "../services/TutorialService";
+
+export const createTutorial = (tutorial) => async (dispatch) => {
+  const { title, description } = tutorial
+  const res = await TutorialService.create({ title, description });
+  console.log(res.data)
   dispatch({
     type: CREATE_TUTORIAL,
-    payload: tutorial,
+    // payload: tutorial,
+    payload: res.data,
   });
 };
 
-export const retrieveTutorials = () => (dispatch) => {
+export const retrieveTutorials = () => async (dispatch) => {
+  const res = await TutorialService.getAll();
   dispatch({
     type: RETRIEVE_TUTORIALS,
-    payload: [],
+    // payload: [],
+    payload: res.data,
   });
 };
 
-export const updateTutorial = (id, data) => (dispatch) => {
+export const updateTutorial = (id, data) => async (dispatch) => {
+  const res = await TutorialService.update(id, data);
+  console.log(res.data)
   dispatch({
     type: UPDATE_TUTORIAL,
-    payload: { id, data },
+    // payload: { id, data },
+    payload: res.data
   });
 };
 
-export const deleteTutorial = (id) => (dispatch) => {
+export const deleteTutorial = (id) => async (dispatch) => {
+   const res = await TutorialService.remove(id);
   dispatch({
     type: DELETE_TUTORIAL,
-    payload: { id },
+    payload: res.data,
   });
 };
 
-export const deleteAllTutorials = () => (dispatch) => {
+export const deleteAllTutorials = () => async (dispatch) => {
+  const res = await TutorialService.removeAll();
   dispatch({
     type: DELETE_ALL_TUTORIALS,
-    payload: [],
+    payload: res.data,
   });
 };

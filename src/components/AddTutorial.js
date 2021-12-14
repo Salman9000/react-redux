@@ -39,7 +39,7 @@ const AddTutorial = () => {
       {submitted ? (
         <div>
           <h4>You submitted successfully!</h4>
-          <button className="btn btn-success" onClick={newTutorial}>
+          <button className="btn-success" onClick={newTutorial}>
             Add
           </button>
         </div>
